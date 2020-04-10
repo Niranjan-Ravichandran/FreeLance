@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<p>dash-board works!</p>
+  <div class="card-columns">
+    <!--
+     <div class="card text-center" *ngFor="let job of jobs">
+      <div class="card-body">
+        <h5 class="card-title">{{job.title}}</h5>
+        <p class="card-text">Free Lance Now</p>
+        <a [routerLink]="['/postProject',job.id]" class="card-link">Post a Project </a>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div> 
+  -->
+     <a [routerLink]="['/postProject',job.id]" *ngFor="let job of jobs">
+      
+    <div class="card text-center" >
+      <div class="card-body text-success">
+        <h5 class="card-title ">{{job.title}}</h5>
+        <p class="card-text text-secondary">Free Lance Now</p>
+        <a [routerLink]="['/postProject',job.id]" class="card-link">Post a Project </a>
+      </div>
+    </div>
+  </a> 
+
+  </div> 
+</body>

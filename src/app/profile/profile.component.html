@@ -1,0 +1,204 @@
+<main class="m-3 p-3">
+<section>
+  <div class="container py-3">
+    
+    <!-- Card Start -->
+    <div class="card">
+      <div class="row ">
+  
+        <div class="col-md-4 px-3">
+          <div class="card-block px-6">
+            <div class="avatar mx-auto white m-2 p-2"><img src="../../assets/images/0.jpeg" style="padding: rem;" class="rounded-circle"
+              alt="Sample avatar image.">
+            </div>
+            <h4 class="card-title m-2 p-2"><strong>{{profile.name}}</strong></h4>
+            <h5 class="indigo-text m-2 p-2"><strong>{{profile.title}}</strong></h5>
+            <p class="card-text m-2 p-2">{{profile.location}}
+            </p>
+            <br>
+          </div>
+        </div>
+        <!-- Carousel start -->
+        <div class="col-md-8">
+                  <h3 class="pt-2 pl-2  text-center"  >About
+                  <i class="far fa-edit float-right pr-2"></i> </h3>
+              <h6 class="lead grey-text w-responsive mx-auto mb-5 text-left cyan-text text-justify">
+                {{profile.about}}
+              </h6>
+              
+              <hr>
+              <!-- Social Icons -->
+              <div class="float-right pr-2">
+              <ul class="list-inline py-2">
+                <li class="list-inline-item"><a class="p-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a class="p-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a class="p-2 fa-lg gplus-ic"><i class="fab fa-google-plus-g"></i></a></li>
+                <li class="list-inline-item"><a class="p-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+      </div>
+    </div>
+    </div>
+    <!-- End of card -->
+  
+  </div>
+</section>
+<!-- Second-->
+<section>
+  <div class="container py-3">
+<div class="card">
+<div class="row">
+<div class="col-md-12">
+  <h3 class="pt-2 pl-2  text-center"  >Skills & Endorsements
+    <i class="far fa-edit float-right pr-2"></i> </h3>
+    <div class="list-group pr-2">
+      <ul class="list-group list-group-flush py-2">
+        <li class="list-group-item" *ngFor ="let skill of profile.skills">{{skill}}</li>
+      </ul>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!--Second End-->
+<!--Third Start-->
+
+
+<section>
+  <div class="container py-3">
+<div class="card">
+<div class="row">
+<div class="col-md-12">
+  <h3 class="pt-2 pl-2  text-center"  >Accomplishments
+    <i class="far fa-edit float-right pr-2"></i> </h3>
+    <div class="list-group pr-2">
+      <ul class="list-group list-group-flush py-2">
+        <li class="list-group-item" ><strong>Expertise Samples</strong><button class="btn float-right"><i class="fas fa-plus " data-toggle="modal" data-target="#aboutExpertiseModal"></i></button><p class="text-muted"></p><p class="text-muted">Add Links to Your projects (e.g GitHub) </p></li>
+        <li class="list-group-item" ><strong>Research Publications</strong><button class="btn float-right"><i class="fas fa-plus " data-toggle="modal" data-target="#aboutReleasePublicationModal"></i></button><p class="text-muted"></p><p class="text-muted">Add Links to Your Online Publications </p></li>
+        <li class="list-group-item" ><strong>Patents</strong><button class="btn float-right"><i class="fas fa-plus " data-toggle="modal" data-target="#aboutPatentsModal"></i></button><p class="text-muted"></p><p class="text-muted">Add details to Your Patents </p></li>
+        <li class="list-group-item" ><strong>Certification</strong><button class="btn float-right"><i class="fas fa-plus " data-toggle="modal" data-target="#aboutCertificationModal"></i></button><p class="text-muted"></p><p class="text-muted">Add details of Your Certifications Attained</p></li>
+        <!-- <li class="list-group-item" > Samples<i class="fas fa-plus float-right"></i><p class="text-muted"></p><p class="text-muted">Add Links to Your projects (e.g GitHub) </p></li> -->
+
+      </ul>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!--Third End-->
+<!--Fouth row-->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Expertise Modal starts-->
+<div class="modal fade" id="aboutExpertiseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Expertise Model</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Expertise Modal ends-->
+<!--Release  Publication starts-->
+<div class="modal fade" id="aboutReleasePublicationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Release Publication</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Release Publication Modal ends-->
+<!--Patent starts-->
+<div class="modal fade" id="aboutPatentsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Patent</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Patent Modal ends-->
+<!--Certification modal starts-->
+<div class="modal fade" id="aboutCertificationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Certification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--certification modal ends-->
+</main>

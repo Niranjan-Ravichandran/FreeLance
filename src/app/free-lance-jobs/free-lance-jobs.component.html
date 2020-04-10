@@ -1,0 +1,46 @@
+<main class="m-3 p-3">
+  <div class="container-fluid">
+      <section>
+
+      </section>
+      <section class="card card-cascade narrower mb-5">
+          <div class="row">
+              <div class="col-md-3">
+                  <div class="card" style="width: 18rem;">
+                      <div class="card-header">
+                        Filters
+                      </div>
+                      <ul class="multi-column-dropdown list-group list-group-flush">
+                          <h5 class="text-center">Project Scope</h5>
+                              <li class="list-group-item"><input type="checkbox"> <label class="pl-2">Limited</label></li>
+                              <li class="list-group-item"><input type="checkbox"> <label class="pl-2">Medium </label></li>
+                              <li class="list-group-item"><input type="checkbox"> <label class="pl-2">High </label></li>
+                      </ul>
+                      <ul class="multi-column-dropdown list-group list-group-flush">
+                          <h5 class="text-center">Category</h5>
+                              <li class="list-group-item"><input type="checkbox"> <label class="pl-2">Web Application Development </label></li>
+                              <li class="list-group-item"><input type="checkbox"> <label class="pl-2">Mobile App Development</label></li>
+                              <li class="list-group-item"><input type="checkbox"> <label class="pl-2">Finance </label></li>
+                              <li class="list-group-item"><input type="checkbox"> <label class="pl-2">Data Science </label></li>
+                      </ul>
+                    </div>
+              </div>
+              <div class="col-md-9">
+                  <div class="card-deck" *ngFor = "let project of projects" >
+              <div class="card pt-2 mt-5">
+                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                <div class="card-body">
+                  <h5 class="card-title">{{project.projectName}}</h5>
+                  <p class="card-text">{{project.projectDescription}}</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">{{project.datePosted}}</small>
+                </div>
+              </div>
+            
+            </div>
+              </div>
+          </div>
+      </section>
+  </div>
+</main>
