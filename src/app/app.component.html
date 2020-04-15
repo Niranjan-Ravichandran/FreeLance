@@ -25,13 +25,35 @@
         <a class="nav-link" href="#">Hire FreeLance</a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="/jobs">FreeLancer Jobs1</a>
+        <a class="nav-link" href="/jobs">FreeLancer Jobs</a>
       </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="/profile">Profile</a>
+
+    </ul>
+    <ul class="navbar-nav ml-auto" *ngIf = "isUserLoggedIn">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i> {{profile}} </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="/profile">View Profile</a>
+          <a class="dropdown-item" href="#" (click)="onSignOut()">Log out</a>
+        </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
+    </ul>
+
+
+
+
+    <ul class="navbar-nav ml-auto" *ngIf = "!isUserLoggedIn">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i> {{profile}} </a>
+
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4" >
+          <a class="dropdown-item" href="#"  (click)="openModal()">Login</a>
+          <a class="dropdown-item" href="/login">Sign Up</a>
+        </div>
       </li>
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0">
