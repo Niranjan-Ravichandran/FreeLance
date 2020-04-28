@@ -4,15 +4,43 @@
         <h3>{{this.selectedJob.title}}</h3>
     <div class="form-group">
         <label>Project Name</label>
-        <input type="text" class="form-control" formControlName="projectName">
+        <input type="text" class="form-control" formControlName="projectName" [(ngModel)] = "project.projectName">
     </div>
     <div class="form-group">
         <label>Description</label>
-    <textarea class="form-control" formControlName="projectDescription" rows="4" cols="50">
+    <textarea class="form-control" formControlName="projectDescription" rows="4" cols="50" [(ngModel)] = "project.projectDescription">
     </textarea>
     </div> 
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="onsubmit()">Post Project</button>
-    </form>
+    <div class="form-group">
+        <label>Drag and drop any images or documents that might be helpful in briefing your project</label>
+        <div class="file-upload-wrapper">
+            <input type="file" id="input-file-now" class="file-upload" />
+            
+          </div>
+    </div> 
+    <div class="form-group">
+      <p>Enter skills that best describe your project and help you find the relevant Freelancers</p>
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item col-md-2 " *ngFor= "let skill of project.skills">{{skill}}
+          <a class="close float-right"  (click)="removeSkill(skill)" >&times;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="form-group">
+        <mat-form-field style="width:400px !important" >
+            <input  type="text" matInput formControlName="skills" #skillVal (keydown.enter)="addSkill()" [matAutocomplete]="auto" placeholder="Enter the skills you're looking for">
+            <mat-icon matSuffix><i class="fas fa-angle-right float-right" style="cursor: pointer;" (click)="addSkill()"></i></mat-icon>
+    <mat-hint>Enter up to 5 skills</mat-hint>
+          </mat-form-field>
+           
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getSelectedSkills($event.option.value)'>
+            <mat-option *ngFor="let result of filteredStates | async" [value]="result.name">{{result.name}}</mat-option>
+          </mat-autocomplete>
+    </div> 
+    <div class="form-group">
+    <button class="btn btn-outline-success my-2 my-sm-0 form-control" type="button" (click)="onsubmit()">Post Project</button>
+  </div>
+  </form>
      <br/>
      <br/>
       <!-- <div [hidden]="!submitted">
@@ -22,3 +50,4 @@
     
       </div> -->
     </div>
+     

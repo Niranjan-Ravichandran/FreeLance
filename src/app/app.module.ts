@@ -17,6 +17,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModalSignupComponent } from './modal-signup/modal-signup.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +43,10 @@ import { ModalSignupComponent } from './modal-signup/modal-signup.component';
     ReactiveFormsModule ,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule ,
-    NgbModule
+    NgbModule ,
+    MatIconModule, MatInputModule,
+    MatAutocompleteModule, MatChipsModule,
+    MatFormFieldModule
   ],
    entryComponents: [ ModalSignupComponent ] ,
 

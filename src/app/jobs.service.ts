@@ -9,6 +9,7 @@ import { catchError, tap, map, filter } from 'rxjs/operators';
 export class JobsService  {
   private project: Observable<Jobs[]>;
   public jobs: Jobs[];
+  public skills: any[];
   constructor(private http: HttpClient) {
   }
   getJobs(): Observable<Jobs[]> {
@@ -32,6 +33,15 @@ export class JobsService  {
       errMsg = err.error.status;
     }
     console.log(errMsg);
+  }
+  getSkills(): Observable<any[]> {
+    return this.http.get<Jobs[]>('assets//skills.JSON').pipe(
+      tap(skill =>
+         // JSON.stringify(jobs)
+          this.skills = skill
+         ),
+      catchError(err => this.handleError)
+    );
   }
 
 

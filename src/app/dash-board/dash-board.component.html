@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-
+<main class="m-3 p-3">
 <p>dash-board works!</p>
   <div class="card-columns">
-    <!--
-     <div class="card text-center" *ngFor="let job of jobs">
-      <div class="card-body">
-        <h5 class="card-title">{{job.title}}</h5>
-        <p class="card-text">Free Lance Now</p>
-        <a [routerLink]="['/postProject',job.id]" class="card-link">Post a Project </a>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div> 
-  -->
      <a [routerLink]="['/postProject',job.id]" *ngFor="let job of jobs">
       
-    <div class="card text-center" >
+    <div class="card text-center animated zoomIn" >
       <div class="card-body text-success">
         <h5 class="card-title ">{{job.title}}</h5>
         <p class="card-text text-secondary">Free Lance Now</p>
@@ -24,6 +11,15 @@
       </div>
     </div>
   </a> 
+  <!--Zoom effect-->
+<div class="view overlay zoom" *ngFor="let job of jobs">
+    <!-- <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(131).jpg" class="img-fluid " alt="smaple image"> -->
+    <div class="mask flex-center">
+      <h5 class="card-title ">{{job.title}}</h5>
+      <p class="card-text text-secondary">Free Lance Now</p>
+      <a [routerLink]="['/postProject',job.id]" class="card-link">Post a Project </a>
+    </div>
+</div>
 
   </div> 
-</body>
+</main>

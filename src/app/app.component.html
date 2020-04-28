@@ -27,7 +27,9 @@
 	  <li class="nav-item">
         <a class="nav-link" href="/jobs">FreeLancer Jobs</a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link" href="#">Notification</a>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto" *ngIf = "isUserLoggedIn">
       <li class="nav-item dropdown">
@@ -45,15 +47,11 @@
 
 
     <ul class="navbar-nav ml-auto" *ngIf = "!isUserLoggedIn">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i> {{profile}} </a>
-
-        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4" >
-          <a class="dropdown-item" href="#"  (click)="openModal()">Login</a>
-          <a class="dropdown-item" href="/login">Sign Up</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="#"  (click)="openModal()">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Sign Up</a>
       </li>
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0">
