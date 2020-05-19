@@ -1,5 +1,5 @@
 <p>post-project works!</p>
-<div class="container">
+<div class="container m-10 p-5">
     <form  [formGroup]="projectForm">
         <h3>{{this.selectedJob.title}}</h3>
     <div class="form-group">
@@ -37,17 +37,73 @@
             <mat-option *ngFor="let result of filteredStates | async" [value]="result.name">{{result.name}}</mat-option>
           </mat-autocomplete>
     </div> 
+    <div class="row">
+      <div class="col-sm-6 ">
+        <div class="card"  #fixedPrice (click)="details(fixedPrice)" id='fixedPrice' style="cursor: pointer;">
+          <div class="card-body">
+            <h5 class="card-title">Pay fixed price</h5>
+            <p class="card-text">Agree on a price and release payment when its done. Best for one time tasks</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 ">
+        <div class="card" #hourlyPrice id='hourlyPrice' (click)="details(hourlyPrice)" style="cursor: pointer;">
+          <div class="card-body">
+            <h5 class="card-title">Pay hourly price</h5>
+            <p class="card-text">Hire based on a hourly rate and pay for hours billed.Best for ongoing work</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <br>
+    </div>
+
+<div [hidden] = "isPaymentTypeSelected">
+    <div class="form-group">
+      <!-- Split button -->
+      <div class="row">
+        <div class="col-md-1">
+<div class="btn-group">
+  <button type="button" class="btn ">INR</button>
+  <button type="button" class="btn s dropdown-toggle px-3"
+  data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="false">
+    <span class="sr-only">Select Project Scope</span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" *ngFor = "let value of valueDropdown" (change)="selected()"   value="value" >{{value}}</a>
+  </div>
+</div>
+</div>
+<div class="col-md-5">
+<select class="custom-select custom-select-sm" formControlName = "projectAmount" >
+  <option selected>Choose a price range</option>
+  <option *ngFor = "let value of valueDropdown">{{value}}</option>
+</select>
+</div>
+</div>
+</div>
+
+    <br>
+    <div class="form-group">
+      <label for="expectedDateOfCompletion" class="px-3">Enter expected Date of completion</label>
+      <input type="date" class="px-3" [min]=minDate formControlName = "expectedDateOfCompletion" id="expectedDateOfCompletion">
+    </div>
+ 
+  </div>
+
     <div class="form-group">
     <button class="btn btn-outline-success my-2 my-sm-0 form-control" type="button" (click)="onsubmit()">Post Project</button>
   </div>
   </form>
      <br/>
      <br/>
-      <!-- <div [hidden]="!submitted">
+      <div>
         <h3> Project Details </h3>
         <p>projectName: {{ projectForm.get('projectName').value }} </p>
         <p> description: {{ projectForm.get('projectDescription').value }} </p>
-    
-      </div> -->
+        <p>projectAmount: {{ projectForm.get('projectAmount').value}}</p>
+      </div> 
     </div>
      

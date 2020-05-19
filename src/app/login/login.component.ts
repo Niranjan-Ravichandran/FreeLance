@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalSignupComponent } from '../modal-signup/modal-signup.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,7 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder , private router: Router
+            , private modalService: NgbModal) { }
   registerForm: FormGroup;
   submitted: boolean;
   ngOnInit() {
@@ -18,8 +22,20 @@ export class LoginComponent implements OnInit {
       passWord: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       subscription: ['', Validators.required],
-
+      role: ['', Validators.required]
     });
   }
+  openModal() {
+    const modalRef = this.modalService.open(ModalSignupComponent);
+    modalRef.result.then((result) => {
+        if (result) {
+          this.router.navigate(['/dashboard']);
+        }
+        });
+    }
+    onSubmit() {
+      alert('submitted');
+      console.log(this.registerForm);
+    }
 
 }

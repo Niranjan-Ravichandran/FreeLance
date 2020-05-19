@@ -12,7 +12,6 @@ export class ProfileComponent implements OnInit {
   profile: Profile;
   user: User;
   name: string;
-  submit : boolean;
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -40,9 +39,5 @@ export class ProfileComponent implements OnInit {
         console.log(result);
         }
         });
-    }
-    onSubmit(){
-
-      this.submit = false;
     }
 }

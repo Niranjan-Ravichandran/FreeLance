@@ -1,4 +1,7 @@
-<form class="text-center border border-light p-5" [formGroup]="registerForm">
+<div class="row">
+    <section class="col-md-3"></section>
+<section class="col-md-6 mx-2 mb-4 my-4 p-5">
+<form class="text-center border border-light p-5 " [formGroup]="registerForm">
 
     <p class="h4 mb-4">Sign up</p>
 
@@ -35,18 +38,18 @@
     </div>
     <!-- Default inline 1-->
 <div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample">
+  <input type="radio" class="custom-control-input" id="defaultInline1" value="Freelancer" formControlName="role" name="inlineDefaultRadiosExample">
   <label class="custom-control-label" for="defaultInline1">Freelancer</label>
 </div>
 
 <!-- Default inline 2-->
 <div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+  <input type="radio" class="custom-control-input" id="defaultInline2" value="Recruiter" formControlName="role" name="inlineDefaultRadiosExample">
   <label class="custom-control-label" for="defaultInline2">Recruiter</label>
 </div>
 
     <!-- Sign up button -->
-    <button class="btn btn-info my-4 btn-block" type="submit" (click)="submitted=true">Sign in</button>
+    <button class="btn btn-info my-4 btn-block" type="submit" (click)="onSubmit()">Sign in</button>
 
     <!-- Social register -->
     <p>or sign up with:</p>
@@ -57,21 +60,18 @@
     <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
 
     <hr>
+    <p>Already a Member?
+        <button type="button"  (click)="openModal()" style="cursor: pointer;" class="btn-info" mdbBtn color="link">Login</button>
 
+    </p>
+    <hr>
     <!-- Terms of service -->
     <p>By clicking
         <em>Sign up</em> you agree to our
         <a href="" target="_blank">terms of service</a>
     </p>
 
-
-<!-- Default form register -->
-<!-- Default form login -->
-<!-- <div [hidden]="!submitted">
-    <h3> Employee Details </h3>
-    <p>First Name: {{ registerForm.get('firstName').value }} </p>
-    <p> Last Name: {{ registerForm.get('lastName').value }} </p>
-
-</div> -->
-  
-  <!-- End your project here-->
+</form>
+</section>
+<section class="col-md-3"></section>
+</div>

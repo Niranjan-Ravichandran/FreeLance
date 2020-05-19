@@ -6,14 +6,15 @@ import { FreeLanceJobsComponent } from './free-lance-jobs/free-lance-jobs.compon
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginGuard } from './login.guard';
 
 const routes: Routes = [
   {path: 'dashboard' , component: DashBoardComponent} ,
-  {path: 'postProject/:title' , component: PostProjectComponent} ,
+  {path: 'postProject/:title' , component: PostProjectComponent , canActivate : [LoginGuard]} ,
   {path: 'jobs' , component: FreeLanceJobsComponent} ,
   {path: 'login' , component: LoginComponent} ,
   {path: 'profile' , component: ProfileComponent} ,
-  {path: '' , component: HomeComponent , pathMatch: 'full'}
+   {path: '' , component: HomeComponent , pathMatch: 'full'}
 ];
 
 @NgModule({

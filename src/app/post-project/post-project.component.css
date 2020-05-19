@@ -122,3 +122,8 @@ body {
     right: 3.5%
   }
 }
+#fixedPrice {
+  -webkit-animation-duration: 3s;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-iteration-count: infinite;
+}

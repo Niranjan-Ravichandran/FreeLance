@@ -13,6 +13,8 @@ import { SkillsService } from '../skills.service';
 import { Skills } from './skills';
 import { Project } from '../free-lance-jobs/Project';
 import { User } from '../user';
+import { $, $$ } from 'protractor';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-post-project',
   templateUrl: './post-project.component.html',
@@ -21,7 +23,8 @@ import { User } from '../user';
 export class PostProjectComponent implements OnInit {
   results: Skills[];
   constructor(private formBuilder: FormBuilder, private router: ActivatedRoute
-            , private jobService: JobsService, private http: HttpClient, public skillService: SkillsService) {
+            , private jobService: JobsService, private http: HttpClient, public skillService: SkillsService ,
+              public datepipe: DatePipe ) {
             }
   projectForm: FormGroup;
   selectedJob: Jobs;
@@ -31,11 +34,22 @@ export class PostProjectComponent implements OnInit {
   id = 0;
   filteredStates: Observable<any[]>;
   project = new Project();
+  valueDropdown = [];
+  hourlyPrice = ['Basic(50-150 INR) per hour', 'Moderate(150-250 INR) per hour',
+  'Standard(300-450 INR) per hour', 'Expert(450-600) per hour'];
+  fixedPrice = ['Micro Project(500-1000) INR', 'Simple Project(1000-2500) INR',
+  'Medium Project(2500-5000) INR', 'Large Project(5000-10000) INR'];
+  dueDate = new Date();
+  minDate = this.datepipe.transform(this.dueDate, 'yyyy-MM-dd');
+  isPaymentTypeSelected = true;
   ngOnInit() {
+    console.log('minDate' + this.minDate);
     this.projectForm = this.formBuilder.group(
       {projectName: ['', Validators.required],
       projectDescription: ['', Validators.required],
-      skills : ['']
+      skills : [''],
+      projectAmount : [''] ,
+      expectedDateOfCompletion: [''] ,
     }
     );
     this.id = +this.router.snapshot.paramMap.get('title');
@@ -61,7 +75,17 @@ export class PostProjectComponent implements OnInit {
   }
   onsubmit() {
     alert('submit is clicked');
-    console.log('jo' + this.jobs);
+    this.project.projectName = this.projectForm.get('projectName').value;
+    this.project.projectDescription = this.projectForm.get('projectDescription').value;
+    this.project.paymentType = this.getPaymentType();
+    this.project.paymentPrice = this.projectForm.get('projectAmount').value;
+    this.project.datePosted = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
+    this.project.expectedDateOfCompletion = this.projectForm.get('expectedDateOfCompletion').value;
+    console.log(JSON.stringify(this.project));
+  }
+  getPaymentType() {
+    const elem = document.getElementsByClassName('card text-white bg-success mb-3')[0].id;
+    return elem;
   }
   isJObsPopulated() {
     this.jobsFromService = this.jobService.jobs;
@@ -106,4 +130,30 @@ addSkill() {
   }
 }
 
+selectPrice() {
+
+}
+details(elem: HTMLElement) {
+  elem.className = 'card text-white bg-success mb-3';
+  this.getDropDownValues(elem);
+  const toggleValue = elem.id === 'fixedPrice' ? 'hourlyPrice' : 'fixedPrice';
+  this.toggle(document.getElementById(toggleValue));
+  this.isPaymentTypeSelected = false;
+}
+toggle(elem: HTMLElement) {
+  elem.className = 'card';
+}
+getDropDownValues(elem: HTMLElement) {
+  const selectedValue = elem.id === 'fixedPrice' ? 'fixedPrice' : 'hourlyPrice';
+  if ( selectedValue === 'fixedPrice') {
+    this.valueDropdown = this.fixedPrice;
+  } else {
+    this.valueDropdown = this.hourlyPrice;
+  }
+
+}
+
+selected() {
+  console.log('yugggggggggg' + this.projectForm.get('projectAmount').value);
+}
 }

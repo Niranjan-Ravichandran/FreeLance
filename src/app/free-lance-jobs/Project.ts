@@ -1,12 +1,15 @@
 import { Jobs } from '../jobs';
 
 export class Project {
-    id: number ;
+    id?: number ;
     projectName: string ;
     projectDescription: string ;
     skills: string[];
     datePosted: any ;
-    job: Jobs;
+    expectedDateOfCompletion?: any;
+    paymentType: any ;
+    paymentPrice: any ;
+    job?: Jobs;
     constructor() {
         this.skills = [] ;
     }

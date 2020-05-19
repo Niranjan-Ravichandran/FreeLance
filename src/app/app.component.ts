@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
     onSignOut() {
       this.profile = 'Profile';
       this.isUserLoggedIn = false;
+      sessionStorage.clear();
     }
 
 }

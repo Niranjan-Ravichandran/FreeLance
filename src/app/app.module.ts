@@ -22,8 +22,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
-
+import {DatePipe} from '@angular/common';
+import { from } from 'rxjs';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     LoginComponent,
     HomeComponent,
     ProfileComponent,
-    ModalSignupComponent
+    ModalSignupComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +49,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule, MatInputModule,
     MatAutocompleteModule, MatChipsModule,
     MatFormFieldModule
+
   ],
    entryComponents: [ ModalSignupComponent ] ,
 
-  providers: [JobsService , FlService],
+  providers: [JobsService , FlService , DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
