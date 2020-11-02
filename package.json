@@ -1,6 +1,7 @@
 {
   "name": "free-lance",
   "version": "0.0.0",
+  "main": "server.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
